@@ -4,7 +4,6 @@ PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDc6O4uL/QjIkHGQRlYM7nqQBhjiDYZ
 SSH_PORT=22
 FAIL2BAN_INSTALL=true
 
-# Check if running as root
 if [ "$EUID" -ne 0 ]; then
     echo "Please run as root"
     exit 1
