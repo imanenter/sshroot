@@ -15,10 +15,11 @@ chmod 600 ~/.ssh/authorized_keys
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 
 echo "Configuring SSH daemon..."
-sed -i 's/^#*Port .*/Port '"$SSH_PORT"'/' $SSHD_CONFIG
+sed -i "s/^#*Port .*/Port $SSH_PORT/" $SSHD_CONFIG
 sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' $SSHD_CONFIG
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' $SSHD_CONFIG
 
 
 
 systemctl restart ssh
+sudo reboot
