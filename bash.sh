@@ -24,14 +24,7 @@ cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 
 echo "Configuring SSH daemon..."
 sed -i 's/^#*Port .*/Port '"$SSH_PORT"'/' /etc/ssh/sshd_config
-sed -i 's/^#*PermitRootLogin .*/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -i 's/^#*PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
-sed -i 's/^#*ChallengeResponseAuthentication .*/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
-sed -i 's/^#*PermitEmptyPasswords .*/PermitEmptyPasswords no/' /etc/ssh/sshd_config
-sed -i 's/^#*X11Forwarding .*/X11Forwarding no/' /etc/ssh/sshd_config
-sed -i 's/^#*ClientAliveInterval .*/ClientAliveInterval 300/' /etc/ssh/sshd_config
-sed -i 's/^#*ClientAliveCountMax .*/ClientAliveCountMax 2/' /etc/ssh/sshd_config
-
 # Verify SSH config
 if ! sshd -t; then
     echo "Error in SSH configuration. Restoring backup..."
